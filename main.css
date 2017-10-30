@@ -1,3 +1,7 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 td {
     border: 1px solid black;
     width: 50px;
@@ -17,7 +21,20 @@ input {
     margin: 3px;
 }
 
+@media print {
+    #non-printable { display: none; }
+    #printable { display: block; }
+}
+
 #result {
+    height:100px;
     font-size: 20px;
     font-weight: bold;
+}
+
+footer {
+    height:100px;
+    font-size: 12px;
+    text-align: center;
+    padding-top:100px;
 }

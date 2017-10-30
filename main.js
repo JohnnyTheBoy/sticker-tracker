@@ -16,13 +16,12 @@ const createTable = (album) => {
     for (let i = 1; i <= album; i++) {
         let sticker = document.createElement("td");
         sticker.textContent = i;
-        row.appendChild(sticker);
+        table.appendChild(sticker);
     }
 }
 //#endregion
 
 createTable(album);
-
 
 //#region - Event listeners
 input.addEventListener("keypress", function (event) {
@@ -59,7 +58,6 @@ calcButton.addEventListener("click", (event) => {
 
 printButton.addEventListener("click", () => { window.print() });
 //#endregion
-
 
 //#region - calculate and display result
 const result = () => {
