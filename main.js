@@ -12,7 +12,7 @@ const album = Number(prompt("Koliko album ima sličica?"));
 let stickers = 0;
 
 //#region - Format table based on number of stickers in album
-let table = (album) => {
+const createTable = (album) => {
     for (let i = 1; i <= album; i++) {
         let sticker = document.createElement("td");
         sticker.textContent = i;
@@ -21,4 +21,40 @@ let table = (album) => {
 }
 //#endregion
 
-table(album);
+createTable(album);
+
+
+//#region - Event listeners
+input.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        let tds = table.children;
+        for (let i = 0; i < tds.length; i++) {
+            if (input.value === tds[i].textContent) {
+                tds[i].classList.add("success");
+                input.value = "";
+            }
+        }
+    }
+});
+
+table.addEventListener("click", (event) => {
+    if (event.target.tagName === "TD") {
+        event.target.classList.toggle("success");
+    }
+});
+
+calcButton.addEventListener("click", (event) => {
+
+    //get selected stickers
+    let selectedTds = document.querySelectorAll(".success");
+
+    //count and removes selected stickers
+    for (let i = 0; i < selectedTds.length; i++) {
+        stickers++;
+        let parent = selectedTds[i].parentNode;
+        parent.removeChild(selectedTds[i]);
+    }
+})
+
+printButton.addEventListener("click", () => { window.print() });
+//#endregion
