@@ -8,7 +8,19 @@ const printButton = document.getElementById("print");
 const displayResult = document.getElementById("result");
 //#endregion
 
-const album = Number(prompt("Koliko album ima sličica?"));
+let album = Number(prompt("Koliko album ima sličica?"));
+inputCheck();
+
+//#region - input check
+function inputCheck() {
+    if (isNaN(album) || album === 0) {
+        while (isNaN(album) || album === 0) {
+            album = Number(prompt("Neispravan unos.Koliko album ima sličica?"));
+        }
+    }
+}
+//#endregion
+
 let stickers = 0;
 
 //#region - Format table based on number of stickers in album
