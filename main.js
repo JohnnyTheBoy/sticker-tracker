@@ -54,7 +54,18 @@ calcButton.addEventListener("click", (event) => {
         let parent = selectedTds[i].parentNode;
         parent.removeChild(selectedTds[i]);
     }
+    result();
 })
 
 printButton.addEventListener("click", () => { window.print() });
+//#endregion
+
+
+//#region - calculate and display result
+const result = () => {
+    let percentage = Math.round((stickers * 100) / album);
+    displayResult.innerHTML = "Album: " + album + " sličica."
+        + " Ukupno sakupljenih sličica: " + stickers +
+        ". Preostalo sličica: " + (album - stickers) + ".Trenutno je popunjeno " + percentage + "% albuma.";
+};
 //#endregion
