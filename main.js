@@ -5,10 +5,12 @@ const input = document.getElementById("inputSticker");
 const table = document.getElementById("table");
 const calcButton = document.getElementById("calc");
 const printButton = document.getElementById("print");
+const newAlbumButton = document.getElementById("newAlbum");
 const displayResult = document.getElementById("result");
 //#endregion
 
 let album = Number(prompt("Koliko album ima sličica?"));
+
 inputCheck();
 
 //#region - input check
@@ -69,6 +71,8 @@ calcButton.addEventListener("click", (event) => {
 })
 
 printButton.addEventListener("click", () => { window.print() });
+
+newAlbumButton.addEventListener("click", () => window.location.reload(true));
 //#endregion
 
 //#region - calculate and display result
